@@ -62,3 +62,38 @@ Language models can generate technical explanations, but without access to organ
 OpsRAG aims to combine semantic search, textual retrieval, and LLM-based generation to produce diagnoses backed by evidence.
  
 ---
+
+## 3. Target user
+ 
+### Primary user
+ 
+DevOps Engineer, SRE, Cloud Engineer, or Platform Engineer responsible for investigating incidents in development, testing, or production environments.
+ 
+### Expected background knowledge
+ 
+The user is familiar with concepts such as:
+ 
+- AWS.
+- Kubernetes.
+- EKS.
+- Terraform.
+- Networking.
+- Databases.
+- Kafka.
+- Observability.
+- Logs and metrics.
+OpsRAG does not replace this knowledge. It complements it through search, correlation, and organization of evidence.
+ 
+### User needs
+ 
+The user needs to:
+ 
+- Quickly find documentation related to an incident.
+- Compare the current problem with previous incidents.
+- Get a ranked list of possible causes.
+- Identify what to validate first.
+- Know what evidence supports each hypothesis.
+- Get safe diagnostic commands.
+- Distinguish facts, inferences, and assumptions.
+- Avoid manually reviewing dozens of documents.
+---
