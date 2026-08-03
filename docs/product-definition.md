@@ -190,3 +190,63 @@ Expected response:
 - Safe Kubernetes and AWS commands.
 - Separation between DNS, routing, firewall, and credentials issues.
 ---
+
+## 6. MVP scope
+
+The MVP will include the following capabilities.
+
+### Document ingestion
+
+The system will initially be able to process:
+
+- Markdown.
+- Plain text.
+- JSON.
+- YAML.
+- Terraform.
+- Text Logs.
+
+### Retrieval
+
+The system will use:
+
+- Vector search.
+- Textual search.
+- Metadata filters.
+- Hybrid retrieval.
+- Result ranking.
+
+### Generation
+
+The system will produce:
+
+- Structured responses.
+- Hypotheses.
+- Evidence.
+- Recommendations.
+- Diagnostic commands.
+- Citations.
+- Limitations.
+- Uncertainty indicators.
+
+### Evaluation
+
+The system will have an initial set of evaluation questions with:
+
+- Expected relevant documents.
+- Facts that must appear.
+- Claims that must not be generated.
+- Cases where the system should abstain.
+
+### Interface
+
+The MVP will have an interface that allows the user to:
+
+- Write a question.
+- View the answer.
+- View the retrieved resources.
+- View the fragments used.
+- View the retrieval scores.
+- Consult the basic execution trace.
+
+---
