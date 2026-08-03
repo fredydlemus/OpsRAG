@@ -98,3 +98,14 @@ The user needs to:
 - Distinguish facts, inferences, and assumptions.
 - Avoid manually reviewing dozens of documents.
 ---
+
+## 4. Value proposition
+
+OpsRAG reduces the time needed to start investigating an incident by transforming a technical question into a structured set of
+hypotheses, checks, and evidence.
+
+The value proposition can be summarized as:
+
+> Help engineers investigate technical incidents using their own organization's operational knowledge, without losing traceability over sources and without presenting assumptions as facts.
+
+---
