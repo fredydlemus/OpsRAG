@@ -250,3 +250,27 @@ The MVP will have an interface that allows the user to:
 - Consult the basic execution trace.
 
 ---
+
+## 7. Out of scope for the MVP
+ 
+The following features will not be part of the first version:
+ 
+- Automatic execution of commands.
+- Infrastructure modification.
+- Automatic pod restarts.
+- Direct access to production clusters.
+- Real-time CloudWatch queries.
+- Real-time Prometheus queries.
+- PagerDuty integration.
+- Slack integration.
+- Autonomous agents.
+- GraphRAG.
+- Direct analysis of images or dashboards.
+- Multimodal diagnostics.
+- Automatic remediation.
+- Automatic generation of Terraform changes.
+- Automatic application of Kubernetes manifests.
+- Multi-company or multi-tenant access.
+These capabilities can be evaluated after validating the quality of conventional RAG.
+ 
+---
