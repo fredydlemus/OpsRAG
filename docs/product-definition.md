@@ -82,6 +82,7 @@ The user is familiar with concepts such as:
 - Kafka.
 - Observability.
 - Logs and metrics.
+
 OpsRAG does not replace this knowledge. It complements it through search, correlation, and organization of evidence.
  
 ### User needs
