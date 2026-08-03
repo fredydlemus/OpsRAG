@@ -275,3 +275,42 @@ The following features will not be part of the first version:
 These capabilities can be evaluated after validating the quality of conventional RAG.
  
 ---
+
+## 8. Knowledge sources
+
+The initial knowledge base will be composed of documents created specifically for the three MVP use cases.
+
+### Document types
+
+- Runbooks.
+- Postmortems.
+- ADRs.
+- Architecture documentation.
+- Terraform fragments.
+- Kubernetes manifests.
+- Kafka configurations.
+- Observability configurations.
+- Logs.
+- Command outputs.
+- Diagnostic procedures.
+- Network documentation.
+
+### Main metadata
+
+Each document or fragment may include:
+
+- Service.
+- Environment.
+- Document type.
+- Creation date.
+- Last updated date.
+- Severity.
+- Incident type.
+- Source.
+- Version.
+- Region.
+- Cluster.
+- Namespace.
+- Confidentially level.
+
+---
