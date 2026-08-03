@@ -23,3 +23,42 @@ OpsRAG must no be presented as a system that resolves incidents automatically. I
 in a more structured and verifiable way.
 
 ---
+
+## 2. Problem
+ 
+During a technical incident, engineers must consult information scattered across multiple sources:
+ 
+- Runbooks.
+- Wikis.
+- Postmortems.
+- Infrastructure repositories.
+- Kubernetes manifests.
+- Configurations.
+- Logs.
+- Dashboards.
+- Vendor documentation.
+- Historical conversations and tickets.
+
+This information can be incomplete, duplicated, outdated, or expressed with different terminology.
+ 
+This causes the investigation process to depend excessively on:
+ 
+- The individual engineer's experience.
+- The team's tribal knowledge.
+- The ability to quickly find the right document.
+- Manual interpretation of configurations and error messages.
+- Memory of past incidents.
+
+Traditional search engines can locate documents cotaninig specific words, but they don't always identify conceptually realted documents.
+ 
+Language models can generate technical explanations, but without access to organization-specific information they can:
+ 
+- Invent configurations.
+- Recommend actions incompatible with the existing architecture.
+- Ignore previous incidents.
+- Confuse general best practices with facts about the environment.
+- Present hypotheses as if they were verified conclusions.
+
+OpsRAG aims to combine semantic search, textual retrieval, and LLM-based generation to produce diagnoses backed by evidence.
+ 
+---
