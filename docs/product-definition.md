@@ -314,3 +314,30 @@ Each document or fragment may include:
 - Confidentially level.
 
 ---
+
+## 9. System input
+
+The main input will be a technical question written in natural language.
+
+Example:
+
+> The Kafka broker is constantly near its CPU limit, but consumers have no lag. What could be causing this?
+
+The query may contain:
+
+- Service name.
+- Resource name.
+- Environment.
+- Error message.
+- Port.
+- Observed metric.
+- Command output.
+- Symptom.
+- Recent change.
+
+The MVP will not require the user to fill in all these fields in a structured way.
+
+---
+
+## 10. System output
+
