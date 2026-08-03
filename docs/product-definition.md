@@ -271,6 +271,7 @@ The following features will not be part of the first version:
 - Automatic generation of Terraform changes.
 - Automatic application of Kubernetes manifests.
 - Multi-company or multi-tenant access.
+
 These capabilities can be evaluated after validating the quality of conventional RAG.
  
 ---
