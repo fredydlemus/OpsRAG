@@ -109,3 +109,84 @@ The value proposition can be summarized as:
 > Help engineers investigate technical incidents using their own organization's operational knowledge, without losing traceability over sources and without presenting assumptions as facts.
 
 ---
+
+## 5. MVP use cases
+
+The MVP will focus on three scenarios.
+
+### 5.1 Kafka with high CPU consumption
+
+Example question:
+
+> Broker `prod-kafka-0` is consistently using approximately 2.5 CPU. What could be the causes, and what should I check first?
+
+Potential sources:
+
+- Pod resource configuration.
+- JMX Exporter configuration.
+- Prometheus metrics.
+- Kafka runbook.
+- Postmortens of previous incidents.
+- Consumer configuration.
+- Partition configuration.
+- Strimzi manifests.
+
+Expected response:
+
+- Identification that consumption is near the configured limit.
+- Hyposteses about throttling, load, partitions, metrics, or gabage collection.
+- retrieved evidence.
+- Validation commands.
+- Prioritization of checks.
+
+### 5.2 Lambda inside a VPC without access to SNS
+ 
+Example question:
+ 
+> My Lambda connects successfully to RDS, but times out when publishing a message to SNS over port 443. What should I check?
+ 
+Potential sources:
+ 
+- Network diagram.
+- Route tables.
+- Subnet configuration.
+- Security groups.
+- Lambda Terraform code.
+- Internal documentation on NAT Gateway.
+- Documentation on VPC Endpoints.
+- Connectivity runbook.
+
+Expected response:
+ 
+- Differentiation between connectivity to RDS and connectivity to public AWS services.
+- Hypotheses related to NAT Gateway, routes, and VPC Endpoint.
+- Specific checks.
+- Environment evidence.
+- Read-only AWS CLI commands or queries.
+
+### 5.3 Application in EKS without connection to RDS
+ 
+Example question:
+ 
+> A pod in EKS gets a timeout connecting to PostgreSQL on port 5432. What components should I validate?
+ 
+Potential sources:
+ 
+- Security groups.
+- Subnets.
+- Network policies.
+- Kubernetes Services.
+- DNS configuration.
+- RDS and EKS Terraform code.
+- Environment variables.
+- Connectivity runbooks.
+- Related postmortems.
+
+Expected response:
+ 
+- Ranked list of possible causes.
+- Validation from the application layer down to the network.
+- Evidence associated with each recommendation.
+- Safe Kubernetes and AWS commands.
+- Separation between DNS, routing, firewall, and credentials issues.
+---
