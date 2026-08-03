@@ -386,3 +386,55 @@ Conceptual example:
 ```
 
 ---
+
+## 11. Response principes
+
+OpsRAG must follow the following principes.
+
+### Evidence before athority
+
+A claim must be linked to a retreived source whenever it represents a fact specific to the environment.
+
+### Separation between facts and hypotheses
+
+The system must distinguish:
+
+- Observed facts.
+- Interpretations.
+- Hypotheses.
+- Recommendations.
+- Missing information.
+
+### Explicit uncertainty
+
+When evidence is insufficient, the system must state so.
+
+### Abstentation
+
+When no relevant source exist, the system must avoid inventing an environment-specific answer.
+
+A valid response migth be:
+
+> There is not enough evidence in the knowledge base to determine the cause. It is recommended to validate the folowing data before continuing.
+
+### Operational safety
+
+Commands must be classified according to their risk:
+
+- `read-only`
+- `low-risk`
+- `medium-risk`
+- `high-risk`
+
+The MVP will prioritize read-only commands.
+
+### Traceability
+
+The user must be able to identify:
+
+- Which documents were retrieved.
+- Which fragments were used.
+- Which claims are backed by each fragment.
+- Which part of the response is an inference.
+
+---
