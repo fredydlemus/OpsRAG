@@ -438,3 +438,105 @@ The user must be able to identify:
 - Which part of the response is an inference.
 
 ---
+
+## 12. Functional requirements
+
+### FR-01
+
+The system must allow technical questions to be asked in natural language.
+
+### FR-02
+
+The system must retrieve relevant fragments from the document base.
+
+### FR-03
+
+The system must combine semantic search and textual search.
+
+### FR-04
+
+The system must allow filtering documents by metadata.
+
+### FR-05
+
+The system must rank retrieved fragments by relevance.
+
+### FR-06
+
+The system must generate structured responses.
+
+### FR-07
+
+The system must include citations to the sources used.
+
+### FR-08
+
+The system must differentiate facts, hypotheses, and recommendations.
+
+### FR-09
+
+The system must indicate when there is not enough evidence.
+
+### FR-10
+
+The system must log the trace of each query.
+
+### FR-11
+
+The system must display the retrieved fragments and their scores.
+
+### FR-12
+
+The system must validate the generated output before deivering it to the user.
+
+---
+
+## 13. Non-functional requirements
+
+### NFR-01 — Traceability
+
+Each response must be traceable to:
+
+- Original query.
+- Processed query.
+- Retrieved documents.
+- Fragments send to the model.
+- Model used.
+- Generated response.
+
+### NFR-02 — Reproducibility
+
+Evaluations must be repeatable with the same configuration.
+
+### NFR-03 — Security
+
+The system must not expose secrets found in documents, logs or configurations.
+
+### NFR-04 — Maintainability
+
+The ingestion, retrieval, reranking, and generation components must be decouple.
+
+### NFR-05 — Observability
+
+The system must log:
+
+- Total latency.
+- Latency per stage.
+- Tokens used.
+- Errors.
+- Number of documents retrieved.
+- Pipeline configuration.
+
+### NFR-06 — Performance
+
+For the MVP, a query should respond in under 15 seconds under normal conditions.
+
+### NFR-07 — Portability
+
+The system must be runnable locally via containers.
+
+### NFR-08 — Reproducible infrastructure
+
+Resources deployed on AWS must be defined via Terraform.
+
+---
