@@ -540,3 +540,43 @@ The system must be runnable locally via containers.
 Resources deployed on AWS must be defined via Terraform.
 
 ---
+
+## 14. Success metrics
+
+### Retrieval quality
+
+Initial targets:
+
+- `Recall@5` greather than or equal to 0.70.
+- `Recall@10` greather than or equal to 0.85.
+- The first relevant document should appear among the top five results for most questions.
+
+### Response quality
+
+Initial targets:
+
+- At least 80% of required facts must appear.
+- At least 90% of citations must correclty support the associated claim.
+- No environment-specific fact should be delibelatery invented.
+- The system must correcty abstain when no evidence exists.
+
+### Performance
+
+Initial targets:
+
+- Total latency under 15 seconds.
+- Retrieval under 2 seconds.
+- Logging of token consumption per query.
+- Logging of estimated cost per query.
+
+### User experience
+
+The user must be able to:
+
+- Understand the diagnosis.
+- Identify the evidence.
+- Know what to check first.
+- Distinguish a hyptheses from a fact.
+- Consult the original resources.
+
+---
