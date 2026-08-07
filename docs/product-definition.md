@@ -580,3 +580,153 @@ The user must be able to:
 - Consult the original resources.
 
 ---
+
+## 15. MVP acceptance criteria
+
+The MVP will be considered functional when it meets the following:
+
+1. Can ingest Markdown, JSON, YAML, Terraform and log documents.
+2. Can store documents and chunks.
+3. Can generate and store embeddings.
+4. Can perform vector search.
+5. Can perform textual search.
+6. Can combine results via hybrid retrieval.
+7. Can apply metadata filters.
+8. Can rerank documents.
+9. Can generate structured responses.
+10. Can include verifiable citations.
+11. Can abstain when there is not enough evidence.
+12. Can run a set of automated evaluations.
+13. Can display the trace of a query.
+14. Can run locally with documented instructions.
+15. Can be deployed on AWS via Terraform.
+
+---
+
+## 16. Initial risks
+
+### Insuficient corpus quality
+
+If the documents are too simple or contain all the answers explicitly, the demo will not represent a realistic scenario.
+
+### Unrepresentative evaluations
+
+A question set that is too small can produce misleading metrics.
+
+### Excessive dependence on the LLM
+
+The system might appear to perform well thanks to the model's general knowledge rather than the retrieved information.
+
+To reduce this risk, environment-specific questions about the fictional setup will be included.
+
+### Irrelevant context
+
+Retrieving too many chunks can introduce noise and reduce response quality.
+
+### Incorrect citations
+
+The model may associate a claim with a source that does not fully support it.
+
+### Document-based prompt injection
+
+A document could contain malicious instructions directed at the model.
+
+### Secret exposure
+
+Logs and configurations could contain credentials, tokens, or sensitive data.
+
+---
+
+## 17. Initial assumptions
+
+For the MVP it is assumed that:
+
+- Documents are located in a local directoy.
+- The corpus contains fewer than 10,000 chunks.
+- There is a single user or team.
+- There is no direct access to real infrastructure.
+- Commands are show but not executed.
+- Most content is in Spanish or technical English.
+- PostgreSQL will be used as the main database.
+- `pgvector` will be used as the vector store.
+- The backend will be developed with Python and FastAPI.
+- The applicaiton will be runnable via Docker Compose.
+- The final deployment wull be on AWS.
+
+---
+
+## 18. Initial technology stack
+ 
+### Backend
+ 
+- Python.
+- FastAPI.
+- Pydantic.
+- SQLAlchemy or psycopg.
+### Database
+ 
+- PostgreSQL.
+- pgvector.
+- PostgreSQL Full Text Search.
+### AI processing
+ 
+- Configurable embedding model.
+- Configurable LLM.
+- Configurable reranker.
+### Local infrastructure
+ 
+- Docker.
+- Docker Compose.
+### Cloud infrastructure
+ 
+- AWS.
+- Terraform.
+- RDS PostgreSQL.
+- S3.
+- ECS or EKS.
+- CloudWatch.
+### Evaluation and observability
+ 
+- Pytest.
+- OpenTelemetry.
+- Custom metrics.
+- Versioned evaluation dataset.
+---
+
+## 19. Post-MVP evolution
+
+- Real-time integration with Kubernetes.
+- CloudWatch integration.
+- Prometheus integration.
+- Git integration.
+- PDF processing.
+- Multimodal RAG.
+- GraphRAG.
+- Correlation with recent changes.
+- Slack integration.
+- PagerDuty integration.
+- Postmortem generation.
+- Remediation plan generation.
+- Human-in-the-loop for approving actions.
+- Controlled execution of read-only commands.
+
+---
+
+## 20. Project success definition
+
+OpsRAG will be successful as a portfolio project if it demonstrates that its author can:
+
+- Design a complete RAG application.
+- Build ingestion pipelines.
+- Work with embeddings.
+- Implement hybrid retrieval.
+- Use reranking.
+- Design structured responses.
+- Reduce hallucinations.
+- Evaluate retrieval and generation separately.
+- Implement observability.
+- Account for security and prompt injection.
+- Deploy infrastructure on AWS.
+- Explain decisions, limitations, and trade-offs.
+
+The main goal is not to create a chatbot, but to demonstrate the construction of a measurable, traceable retrieval-and-generation system aimed at a real operational problem.
