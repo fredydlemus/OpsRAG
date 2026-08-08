@@ -1,0 +1,39 @@
+timestamp: 2026-07-22T14:18:00Z
+namespace: prod
+cluster: prod
+sample_window: 15m
+
+broker: prod-kafka-0
+container_cpu_usage: 2488m
+container_cpu_request: 2500m
+container_cpu_limit: 2500m
+container_memory_working_set: 3.7Gi
+container_memory_request: 4Gi
+container_memory_limit: 4Gi
+cpu_throttled_periods_ratio: 0.18
+network_processor_avg_idle_percent: 12
+request_handler_avg_idle_percent: 21
+produce_requests_per_sec: 1820
+fetch_requests_per_sec: 960
+metadata_requests_per_sec: 210
+leader_partitions: 417
+under_replicated_partitions: 0
+isr_shrink_rate_per_min: 0
+jvm_gc_pause_p95_ms: 74
+jvm_heap_used: 2.4Gi
+metrics_endpoint: http://prod-kafka-0.prod-kafka-brokers.prod.svc:9404/metrics
+metrics_endpoint_duration: 20.3s
+metrics_exposed_lines: 33147
+prometheus_last_scrape: success
+
+broker: prod-kafka-1
+container_cpu_usage: 1710m
+leader_partitions: 356
+metrics_endpoint_duration: 12.8s
+metrics_exposed_lines: 32910
+
+broker: prod-kafka-2
+container_cpu_usage: 1645m
+leader_partitions: 349
+metrics_endpoint_duration: 12.1s
+metrics_exposed_lines: 32886

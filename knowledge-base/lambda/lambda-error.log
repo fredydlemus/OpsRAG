@@ -1,0 +1,12 @@
+2026-07-24T10:42:18.004Z START RequestId: 5efcf7a0-6f4a-4d67-9f1d-1b611a2808a2 Version: $LATEST
+2026-07-24T10:42:18.118Z INFO runtime=nodejs20.x function=prod-order-events-publisher aws_region=us-east-1
+2026-07-24T10:42:18.281Z INFO db.connect host=prod-orders-db.cluster-c8example.us-east-1.rds.amazonaws.com port=5432 result=success latency_ms=46
+2026-07-24T10:42:18.339Z INFO db.query name=healthcheck result=success rows=1 latency_ms=18
+2026-07-24T10:42:18.391Z INFO sns.publish topic=arn:aws:sns:us-east-1:123456789012:prod-order-events protocol=https port=443 attempt=1
+2026-07-24T10:42:23.397Z WARN sns.publish retryable=true code=TimeoutError message="connect ETIMEDOUT sns.us-east-1.amazonaws.com:443"
+2026-07-24T10:42:23.398Z INFO sns.publish topic=arn:aws:sns:us-east-1:123456789012:prod-order-events protocol=https port=443 attempt=2
+2026-07-24T10:42:28.403Z WARN sns.publish retryable=true code=TimeoutError message="connect ETIMEDOUT sns.us-east-1.amazonaws.com:443"
+2026-07-24T10:42:28.404Z ERROR request.failed error.name=TimeoutError error.code=ETIMEDOUT syscall=connect address=sns.us-east-1.amazonaws.com port=443 operation=sns:Publish
+2026-07-24T10:42:28.405Z ERROR stack="TimeoutError: connect ETIMEDOUT sns.us-east-1.amazonaws.com:443 at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16)"
+2026-07-24T10:42:28.407Z END RequestId: 5efcf7a0-6f4a-4d67-9f1d-1b611a2808a2
+2026-07-24T10:42:28.407Z REPORT RequestId: 5efcf7a0-6f4a-4d67-9f1d-1b611a2808a2 Duration: 10403.67 ms Billed Duration: 10404 ms Memory Size: 512 MB Max Memory Used: 142 MB

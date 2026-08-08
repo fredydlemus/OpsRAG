@@ -1,0 +1,10 @@
+2026-07-24T11:06:31.210Z INFO service=orders-api namespace=prod pod=orders-api-6f97d8dd7d-np2r9 version=2026.07.24
+2026-07-24T11:06:31.222Z INFO db.config host=prod-orders-db.cluster-c8example.us-east-1.rds.amazonaws.com port=5432 database=orders
+2026-07-24T11:06:31.236Z INFO dns.lookup host=prod-orders-db.cluster-c8example.us-east-1.rds.amazonaws.com result=success addresses=10.24.48.37,10.24.52.18
+2026-07-24T11:06:31.237Z INFO db.connect attempt=1 target=10.24.48.37:5432 timeout_ms=5000
+2026-07-24T11:06:36.242Z WARN db.connect attempt=1 result=timeout error="connect ETIMEDOUT 10.24.48.37:5432"
+2026-07-24T11:06:36.243Z INFO db.connect attempt=2 target=10.24.52.18:5432 timeout_ms=5000
+2026-07-24T11:06:41.249Z WARN db.connect attempt=2 result=timeout error="connect ETIMEDOUT 10.24.52.18:5432"
+2026-07-24T11:06:41.251Z ERROR startup.database_unavailable message="PostgreSQL connection failed before authentication" code=ETIMEDOUT
+2026-07-24T11:06:41.252Z INFO rds.status cluster=prod-orders-db status=available endpoint=prod-orders-db.cluster-c8example.us-east-1.rds.amazonaws.com
+2026-07-24T11:06:41.253Z INFO shutdown reason=readiness_failed

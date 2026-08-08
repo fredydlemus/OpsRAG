@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prod-kafka-jmx
+  namespace: prod
+data:
+  kafka-metrics-config.yaml: |
+    lowercaseOutputName: true
+    lowercaseOutputLabelNames: true
+    rules:
+      - pattern: kafka.server<type=(.+), name=(.+), topic=(.+), partition=(.+)><>Value
+        name: kafka_server_$1_$2
+        labels:
+          topic: "$3"
+          partition: "$4"
+      - pattern: kafka.server<type=(.+), name=(.+), clientId=(.+), topic=(.+), partition=(.+)><>Value
+        name: kafka_server_$1_$2
+        labels:
+          client_id: "$3"
+          topic: "$4"
+          partition: "$5"
+      - pattern: kafka.network<type=(.+), name=(.+), request=(.+)><>Count
+        name: kafka_network_$1_$2_total
+        labels:
+          request: "$3"
+      - pattern: kafka.network<type=(.+), name=(.+), request=(.+)><>MeanRate
+        name: kafka_network_$1_$2_rate
+        labels:
+          request: "$3"
+      - pattern: kafka.log<type=(.+), name=(.+), topic=(.+), partition=(.+)><>Value
+        name: kafka_log_$1_$2
+        labels:
+          topic: "$3"
+          partition: "$4"
+      - pattern: kafka.consumer<type=(.+), client-id=(.+), topic=(.+), partition=(.+)><>Value
+        name: kafka_consumer_$1
+        labels:
+          client_id: "$2"
+          topic: "$3"
+          partition: "$4"
+      - pattern: kafka.producer<type=(.+), client-id=(.+), topic=(.+)><>(.+)
+        name: kafka_producer_$1_$4
+        labels:
+          client_id: "$2"
+          topic: "$3"
+      - pattern: kafka.controller<type=(.+), name=(.+)><>Value
+        name: kafka_controller_$1_$2
+      - pattern: java.lang<type=GarbageCollector, name=(.+)><>(CollectionCount|CollectionTime)
+        name: jvm_gc_$2
+        labels:
+          collector: "$1"
+      - pattern: java.lang<type=MemoryPool, name=(.+)><Usage>(used|committed|max)
+        name: jvm_memory_pool_$2_bytes
+        labels:
+          pool: "$1"
+      - pattern: ".*"

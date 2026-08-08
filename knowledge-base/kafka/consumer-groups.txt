@@ -1,0 +1,21 @@
+Command:
+kafka-consumer-groups.sh --bootstrap-server prod-kafka-bootstrap.prod.svc:9092 --describe --all-groups
+
+GROUP                         TOPIC                     PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG  CONSUMER-ID                      HOST           CLIENT-ID
+orders-indexer                orders.events             0          8242921         8242921         0    orders-indexer-0-13a92          /10.42.18.21    orders-indexer
+orders-indexer                orders.events             1          8177112         8177112         0    orders-indexer-1-22f51          /10.42.19.15    orders-indexer
+orders-indexer                orders.events             2          8320044         8320044         0    orders-indexer-2-8e103          /10.42.20.77    orders-indexer
+billing-ledger-writer         billing.events            0          4428190         4428190         0    billing-ledger-0-81ad2          /10.42.21.19    billing-ledger
+billing-ledger-writer         billing.events            1          4410082         4410082         0    billing-ledger-1-79be4          /10.42.21.20    billing-ledger
+inventory-cache-refresh       inventory.updates         0          1829023         1829023         0    inventory-cache-0-92bc1         /10.42.17.93    inventory-cache
+inventory-cache-refresh       inventory.updates         1          1851188         1851188         0    inventory-cache-1-01aa9         /10.42.17.94    inventory-cache
+fraud-model-features          payments.authorized       0          6291021         6291021         0    fraud-features-0-771dc         /10.42.16.41    fraud-features
+fraud-model-features          payments.authorized       1          6300082         6300082         0    fraud-features-1-34bde         /10.42.16.42    fraud-features
+shipping-notifier             shipments.created         0          937022          937022          0    shipping-notifier-0-118ab      /10.42.22.10    shipping-notifier
+
+Summary:
+groups_described: 5
+topics_described: 5
+total_reported_lag: 0
+bootstrap_cluster: prod
+namespace: prod
