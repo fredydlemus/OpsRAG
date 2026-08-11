@@ -36,7 +36,7 @@ hello
     with pytest.raises(ValueError):
         extract_frontmatter(content)
 
-def test_extract_frontmatter_simbols_not_frontmatter():
+def test_extract_frontmatter_separator_inside_body_is_not_frontmatter():
     content = """
     # Runbook
 
