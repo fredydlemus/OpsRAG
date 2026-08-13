@@ -153,3 +153,40 @@ def test_document_without_frontmatter(tmp_path):
     assert document.metadata == {}
     assert document.domain is None
     assert document.content == md_content
+
+def test_document_shoud_have_inferred_domain_metadata(tmp_path):
+    md_content = textwrap.dedent("""\
+    ---
+    status: current
+    ---
+    # Runbook content.
+    """)
+
+    kafka_dir = tmp_path / "kafka"
+    kafka_dir.mkdir()
+    runbook_file = kafka_dir / "runbook.md"
+    runbook_file.write_text(md_content, encoding="utf-8")
+
+    parser = MarkdownParser()
+    document = parser.parse(runbook_file, tmp_path)
+
+    assert document.domain == "kafka"
+
+def test_document_should_have_explicit_domain_metadata(tmp_path):
+
+    md_content = textwrap.dedent("""\
+    ---
+    domain: platform
+    ---
+    # Runbook content.
+    """)
+
+    kafka_dir = tmp_path / "kafka"
+    kafka_dir.mkdir()
+    runbook_file = kafka_dir / "runbook.md"
+    runbook_file.write_text(md_content, encoding="utf-8")
+
+    parser = MarkdownParser()
+    document = parser.parse(runbook_file, tmp_path)
+
+    assert document.domain == "platform"

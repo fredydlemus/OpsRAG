@@ -2,6 +2,7 @@ import re
 import yaml
 from pathlib import Path
 
+from opsrag.ingestion.metadata import infer_metadata_from_path
 from opsrag.ingestion.models import Document
 from opsrag.ingestion.utils import (
     calculate_checksum,
@@ -14,7 +15,11 @@ class MarkdownParser:
             content = file.read()
 
         checksum = calculate_checksum(content)
+
+        inferred_metadata = infer_metadata_from_path(path=path, root=root)
         metadata, body = extract_frontmatter(content)
+
+        metadata = inferred_metadata | metadata
 
         source = path.relative_to(root).as_posix()
         document_id = generate_document_id(source)
