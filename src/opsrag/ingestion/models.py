@@ -18,3 +18,11 @@ class Document(BaseModel):
     checksum: str
 
     metadata: dict[str, Any] = Field(default_factory=dict)
+
+class IngestionError(BaseModel):
+    source: str
+    error: str
+
+class IngestionResult(BaseModel):
+    documents: list[Document] = Field(default_factory=list)
+    errors: list[IngestionError] = Field(default_factory=list)
